@@ -2,22 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CreateComponent } from './create/create.component';
-import { ReadComponent } from './read/read.component';
-import { reducer } from './reducers/tutorial.reducer';
 import { StoreModule } from '@ngrx/store';
+import { CreateComponent } from "src/app/store/create/create.component";
+import { ReadComponent } from "src/app/store/read/read.component";
+import { reducer } from "src/app/store/reducers/tutorial.reducer";
+import { SharedModule } from './shared/app.shared.module';
+import { AppRoutingModule } from './app-routing.module';
+import { StoreComponent } from './store/store.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
-    ReadComponent
+    ReadComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     StoreModule.forRoot({
       tutorial: reducer
-    })
+    }),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

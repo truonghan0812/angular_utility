@@ -1,0 +1,6 @@
+<button type="button" class="btn btn-primary btn-sm" [class.active]="isActive" (click)="toggle(true)">Yes</button>
+<button type="button" class="btn btn-primary btn-sm" [class.active]="!isActive" (click)="toggle(false)">No</button>
+<div class="alert alert-danger" style="margin-top: 5px;"
+    *ngIf="controlDir && !controlDir.control.valid">
+   Required
+</div>
