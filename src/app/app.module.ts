@@ -9,13 +9,19 @@ import { reducer } from "src/app/store/reducers/tutorial.reducer";
 import { SharedModule } from './shared/app.shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreComponent } from './store/store.component';
+import { DomComponent } from './dom_manipulation/dom.component';
+import { AddAttributeDirective } from './dom_manipulation/add-attribute.directive';
+import { AComponent } from './dom_manipulation/a/a.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateComponent,
     ReadComponent,
-    StoreComponent
+    StoreComponent,
+    DomComponent,
+    AddAttributeDirective,
+    AComponent  
   ],
   imports: [
     BrowserModule,
