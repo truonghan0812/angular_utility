@@ -1,4 +1,4 @@
-/*
+/* https://www.youtube.com/watch?v=vz9cNCkaPsY&t=0s&list=PLONyzFEUb51RAoaF6ilIrizbLZKIpuUL9&index=26
 1. Put rendering logic in directive
    Put presentation login in component
    Use data binding mechanism to communicate between component and directive
@@ -10,6 +10,12 @@ Benefits: Rendering logic reuse across the application
   Add component to parent using create embbeded view method of container
   Use container to remove child component
   How to check: use Viewchildren to get all ElementRef and check its length
+
+3. Dynamic add component:
+  Add ng-container
+  Add target component to entryComponents of Main module
+  Use ComponentFactoryResolver to create a factory for target component :this.resolver.resolveComponentFactory 
+  Create target component use createComponent method of containter
 */
 
 import { Component, ElementRef, Renderer2 } from '@angular/core';
@@ -23,6 +29,7 @@ import { TemplateRef } from '@angular/core';
 import { AfterViewInit } from '@angular/core';
 import { DComponent } from './d.component';
 import { CComponent } from 'src/app/dom_manipulation/c.component';
+import { ComponentFactoryResolver } from '@angular/core';
 
 @Component({
   selector: 'app-dom',
@@ -36,11 +43,18 @@ export class DomComponent implements AfterViewInit, AfterViewChecked {
   @ViewChild('ctn', { read: ViewContainerRef })
   viewContainer: ViewContainerRef;
 
+  @ViewChild('ctn1', { read: ViewContainerRef })
+  viewContainer1: ViewContainerRef;
+
   @ViewChild('ta', { read: TemplateRef })
   aTemplateRef: TemplateRef<any>;
 
   @ViewChild('tb', { read: TemplateRef })
   bTemplateRef: TemplateRef<null>;
+
+  conponent = null;
+
+  constructor(private resolver: ComponentFactoryResolver) {}
 
   ngAfterViewInit(): void {
     this.viewContainer.createEmbeddedView(this.aTemplateRef);
@@ -56,9 +70,11 @@ export class DomComponent implements AfterViewInit, AfterViewChecked {
   }
 
   show(type) {
-    const conponent = type === 'c' ? CComponent : DComponent;
+    this.conponent = type === 'c' ? CComponent : DComponent;
+    const factory = this.resolver.resolveComponentFactory(this.conponent);
+    this.viewContainer1.clear();
+    this.viewContainer1.createComponent(factory);
   }
-  // constructor(private renderer: Renderer2, private host: ElementRef) {}
 
   // remove() {
   // this.renderer.removeChild(

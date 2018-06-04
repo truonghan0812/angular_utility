@@ -38,6 +38,7 @@ import { CComponent } from 'src/app/dom_manipulation/c.component';
     SharedModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CComponent, DComponent]
 })
 export class AppModule {}

@@ -2,10 +2,8 @@
     <h1>Seprate presentation and rendering logic</h1>
     <span [addAttribute]='"highlight"'>This gonna be red</span>
 </section>
-
-<br>
-<section id="removeDom">
-    <h1>Remove DOM section</h1>
+<section>
+    <h1>Remove DOM</h1>
     <button (click)="remove()">Remove child compoent</button>
     <ng-template #ta>
         <app-a #aCp></app-a>
@@ -19,4 +17,5 @@
     <h1>Dynamicly add compoent</h1>
     <button (click)="show('c')"> Show C component</button>
     <button (click)="show('d')"> Show D component</button>
+    <ng-container #ctn1></ng-container>
 </section>

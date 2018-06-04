@@ -4,7 +4,7 @@ import { DoCheck } from '@angular/core';
 @Component({
   selector: 'app-c',
   template: `
-    <h1>A component</h1>
+    <h1>C component</h1>
   `
 })
 export class CComponent implements DoCheck {
