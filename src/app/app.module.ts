@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -15,6 +16,9 @@ import { DComponent } from './dom_manipulation/d.component';
 import { BComponent } from './dom_manipulation/b.component';
 import { AComponent } from './dom_manipulation/a.component';
 import { CComponent } from 'src/app/dom_manipulation/c.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
+import { WikiService } from './search-box/wiki.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,17 +31,20 @@ import { CComponent } from 'src/app/dom_manipulation/c.component';
     AComponent,
     BComponent,
     CComponent,
-    DComponent
+    DComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot({
       tutorial: reducer
     }),
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [WikiService],
   bootstrap: [AppComponent],
   entryComponents: [CComponent, DComponent]
 })
