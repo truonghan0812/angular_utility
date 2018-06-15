@@ -19,6 +19,8 @@ import { CComponent } from 'src/app/dom_manipulation/c.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { WikiService } from './search-box/wiki.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WebsocketComponent } from './websocket/websocket.component';
+import { MarketChartComponent } from './websocket/market-chart/market-chart.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BComponent,
     CComponent,
     DComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    WebsocketComponent,
+    MarketChartComponent
   ],
   imports: [
     BrowserModule,
