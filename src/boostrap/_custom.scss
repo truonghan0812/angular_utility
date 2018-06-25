@@ -17,10 +17,10 @@ section {
 .carousel-item {
   height: 150px;
 }
-
 .navbar {
+  --background: #f4511e;
   margin-bottom: 0;
-  background-color: #f4511e;
+  background-color: var(--background);
   z-index: 9999;
   border: 0;
   font-size: 12px !important;
