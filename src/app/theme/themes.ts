@@ -1,9 +1,9 @@
-import { Theme } from './theme.module';
+import { Theme } from './theme';
 
 export const purpleTheme: Theme = {
   name: 'purple',
   properties: {
-    '--background': '#1F2125'
+    '--background': '#5928bb'
   }
 };
 export const orangeTheme: Theme = {

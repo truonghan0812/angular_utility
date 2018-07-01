@@ -3,3 +3,4 @@ export * from './theme-option';
 export * from './themes';
 export * from './theme-providers';
 export * from './theme.service';
+export * from './theme.module';

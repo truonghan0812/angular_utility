@@ -21,6 +21,8 @@ import { WikiService } from './search-box/wiki.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WebsocketComponent } from './websocket/websocket.component';
 import { MarketChartComponent } from './websocket/market-chart/market-chart.component';
+import { ThemeModule } from './theme/theme.module';
+import { orangeTheme, purpleTheme } from './theme/themes';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,11 @@ import { MarketChartComponent } from './websocket/market-chart/market-chart.comp
       tutorial: reducer
     }),
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ThemeModule.forRoot({
+      themes: [orangeTheme, purpleTheme],
+      active: 'orange'
+    })
   ],
   providers: [WikiService],
   bootstrap: [AppComponent],

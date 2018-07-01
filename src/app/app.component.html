@@ -1,4 +1,7 @@
-<app-nav></app-nav>
-<div class="container-fluid text-center">
-   <router-outlet></router-outlet>
+<div class="app-container" theme>
+    <app-nav theme></app-nav>
+    <div class="container-fluid text-center">
+        <button [textContent]="buttonTextContent" (click)="switch()" type="button" class="btn btn-danger">Switch theme</button>
+        <router-outlet></router-outlet>
+    </div>
 </div>
